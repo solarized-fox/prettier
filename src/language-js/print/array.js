@@ -161,10 +161,7 @@ function isConciselyPrintedArray(node, options) {
         !hasComment(
           element,
           CommentCheckFlags.Trailing | CommentCheckFlags.Line,
-          (comment) =>
-            !hasNewline(options.originalText, locStart(comment), {
-              backwards: true,
-            })
+          (comment) => comment.placement !== "ownLine"
         )
     )
   );
